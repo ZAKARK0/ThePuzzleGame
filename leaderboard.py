@@ -39,6 +39,6 @@ class LeaderboardApp:
             for idx, (name, time_str) in enumerate(sorted_entries, start=1):
                 self.leaderboard_listbox.insert(tk.END, f"{idx}. {name}: {time_str}")
 
-        # Schedule the update_leaderboard method to run again after 1000ms (1 second)
+        # Schedule the update_leaderboard method to run again after 1000ms (1 seond)
         self.root.after(1000, self.update_leaderboard)
 
