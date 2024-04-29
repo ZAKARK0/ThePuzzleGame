@@ -18,3 +18,16 @@ class LeaderboardApp:
 
         # Call the update_leaderboard method to populate the listbox
         self.update_leaderboard()
+
+    def update_leaderboard(self):
+        # Clear the existing items in the listbox
+        self.leaderboard_listbox.delete(0, tk.END)
+
+        # Read the leaderboard data from the file
+        with open("static/leaderboard.txt", "r") as file:
+            lines = file.readlines()
+            entries = []
+            for line in lines:
+                # Parse each line to extract name and time
+                name, time_str = line.strip().split(": ")
+                entries.append((name, time_str))
