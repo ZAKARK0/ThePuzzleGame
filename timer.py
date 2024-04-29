@@ -35,3 +35,13 @@ class TimerApp:
             self.start_button.config(text="Finish", command=self.finish_timer)
         else:
             messagebox.showinfo("Timer", "Timer already running!")
+
+    def finish_timer(self):
+        if self.timer_running:
+            self.timer_running = False
+            self.start_button.config(text="Start", command=self.start_timer)
+
+            name = self.name_entry.get().strip()  # Get the name from the entry box
+            if not name:
+                messagebox.showwarning("Warning", "Please enter a name!")
+                return
