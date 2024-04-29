@@ -26,3 +26,20 @@ for i in range(NUM_IMAGES):
     image = Image.open(image_path)
     image = image.resize((IMAGE_SIZE, IMAGE_SIZE), resample=Image.LANCZOS)
     pieces.append(pygame.image.frombuffer(image.tobytes(), image.size, image.mode))
+
+# Initialize Game Window
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("Puzzle Game")
+
+clock = pygame.time.Clock()
+
+# Initialize Pygame mixer
+pygame.mixer.init()
+
+# Load the music file
+music_file = os.path.join("static", "music.mp3")
+pygame.mixer.music.load(music_file)
+
+# Set the initial state for the music player
+music_playing = True
+pygame.mixer.music.play(-1)  # -1 means loop indefinitely
