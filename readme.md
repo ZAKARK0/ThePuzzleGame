@@ -1,5 +1,13 @@
+Student Pnumber: P438874
+Student Name : Zakaria Zerari
+
+Module: IY499
+
+
+
 
 <!-- Puzzle Game Project -->
+
 
 Link to my repository:
 https://github.com/ZAKARK0/ThePuzzleGame
