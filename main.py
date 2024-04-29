@@ -137,3 +137,17 @@ def main():
 
     pygame.quit()
 
+def run_timer():
+    subprocess.run(["python", "timer.py"])
+
+
+def run_leaderboard():
+    subprocess.run(["python", "leaderboard.py"])
+
+
+if __name__ == "__main__":
+    # Start the timer and leaderboard as separate processes
+    subprocess.Popen(["python", "timer.py"])
+    subprocess.Popen(["python", "leaderboard.py"])
+
+    main()
