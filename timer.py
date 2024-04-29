@@ -27,3 +27,11 @@ class TimerApp:
 
         self.timer_running = False
         self.start_time = None
+    def start_timer(self):
+        if not self.timer_running:
+            self.timer_running = True
+            self.start_time = time.time()
+            self.update_timer()
+            self.start_button.config(text="Finish", command=self.finish_timer)
+        else:
+            messagebox.showinfo("Timer", "Timer already running!")
