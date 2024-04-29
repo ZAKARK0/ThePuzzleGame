@@ -7,9 +7,15 @@ https://github.com/ZAKARK0/ThePuzzleGame
 This project is a puzzle game implemented in Python using the Pygame library. 
 It allows players to solve puzzles by arranging shuffled pieces to form a complete image.
 the project also runs 2 additional programs , both use file handling and datetime and one
-uses sorting algorithm
-which is the leaderboard algorithm that sorts the players based on time
+
+uses sorting algorithm,which is the leaderboard algorithm that sorts the players based on time
+
 timers deals with user input and error handling if the input is empty
+and also does string manipulation to join the name and time together and write them into leaderboard.txt
+
+
+data structures were used to define the grid and save positions of pieces
+and pygame and tkinter were mainly used to visualize data , which in this project is the game itself
 the main function has all sorts of functionalities and file handling methods
 
 ## Installation
