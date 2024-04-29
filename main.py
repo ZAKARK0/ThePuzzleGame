@@ -43,3 +43,11 @@ pygame.mixer.music.load(music_file)
 # Set the initial state for the music player
 music_playing = True
 pygame.mixer.music.play(-1)  # -1 means loop indefinitely
+
+# Load and resize the music button images
+mute_button_image = pygame.image.load(os.path.join("static", "mute.png"))
+mute_button_image = pygame.transform.scale(mute_button_image, (30, 30))
+unmute_button_image = pygame.image.load(os.path.join("static", "unmute.png"))
+unmute_button_image = pygame.transform.scale(unmute_button_image, (30, 30))
+music_button_image = unmute_button_image
+music_button_rect = music_button_image.get_rect(topleft=(10, 10))
