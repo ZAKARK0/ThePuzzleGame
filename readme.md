@@ -9,6 +9,7 @@ It allows players to solve puzzles by arranging shuffled pieces to form a comple
 the project also runs 2 additional programs , both use file handling and datetime and one
 
 uses sorting algorithm,which is the leaderboard algorithm that sorts the players based on time
+while updating the list each second and listing them accordingly
 
 timers deals with user input and error handling if the input is empty
 and also does string manipulation to join the name and time together and write them into leaderboard.txt
