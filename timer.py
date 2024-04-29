@@ -45,3 +45,32 @@ class TimerApp:
             if not name:
                 messagebox.showwarning("Warning", "Please enter a name!")
                 return
+
+
+            elapsed_time = time.time() - self.start_time
+            hours = int(elapsed_time // 3600)
+            minutes = int((elapsed_time % 3600) // 60)
+            seconds = int(elapsed_time % 60)
+            time_str = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+
+            # Append name and time to leaderboard file
+            with open("static/leaderboard.txt", "a") as file:
+                file.write(f"{name}: {time_str}\n")
+
+            # Show finish message with recorded time
+            messagebox.showinfo("Finish", f"Timer stopped. Time recorded for {name}: {time_str}")
+
+    def update_timer(self):
+        if self.timer_running:
+            elapsed_time = time.time() - self.start_time
+            hours = int(elapsed_time // 3600)
+            minutes = int((elapsed_time % 3600) // 60)
+            seconds = int(elapsed_time % 60)
+            time_str = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+            self.time_label.config(text=time_str)
+            self.root.after(1000, self.update_timer)
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = TimerApp(root)
+    root.mainloop()
