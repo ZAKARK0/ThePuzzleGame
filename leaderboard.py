@@ -31,3 +31,6 @@ class LeaderboardApp:
                 # Parse each line to extract name and time
                 name, time_str = line.strip().split(": ")
                 entries.append((name, time_str))
+
+            # Sort the entries based on time (using time_to_seconds function)
+            sorted_entries = sorted(entries, key=lambda x: self.time_to_seconds(x[1]))
