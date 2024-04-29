@@ -51,3 +51,29 @@ unmute_button_image = pygame.image.load(os.path.join("static", "unmute.png"))
 unmute_button_image = pygame.transform.scale(unmute_button_image, (30, 30))
 music_button_image = unmute_button_image
 music_button_rect = music_button_image.get_rect(topleft=(10, 10))
+
+# Helper Functions
+def draw_grid():
+    for x in range(0, SCREEN_WIDTH, IMAGE_SIZE):
+        pygame.draw.line(screen, WHITE, (x, 0), (x, SCREEN_HEIGHT))
+    for y in range(0, SCREEN_HEIGHT, IMAGE_SIZE):
+        pygame.draw.line(screen, WHITE, (0, y), (SCREEN_WIDTH, y))
+
+def draw_images(image_list):
+    for i, image in enumerate(image_list):
+        row = i // GRID_SIZE
+        col = i % GRID_SIZE
+        screen.blit(image, (col * IMAGE_SIZE, row * IMAGE_SIZE))
+
+def toggle_music():
+    global music_playing, music_button_image
+    if music_playing:
+        # Stop the music
+        pygame.mixer.music.stop()
+        music_playing = False
+        music_button_image = mute_button_image
+    else:
+        # Play the music
+        pygame.mixer.music.play(-1)  # -1 means loop indefinitely
+        music_playing = True
+        music_button_image = unmute_button_image
