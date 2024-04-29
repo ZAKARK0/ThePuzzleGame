@@ -34,3 +34,11 @@ class LeaderboardApp:
 
             # Sort the entries based on time (using time_to_seconds function)
             sorted_entries = sorted(entries, key=lambda x: self.time_to_seconds(x[1]))
+
+            # Display the sorted entries in the listbox
+            for idx, (name, time_str) in enumerate(sorted_entries, start=1):
+                self.leaderboard_listbox.insert(tk.END, f"{idx}. {name}: {time_str}")
+
+        # Schedule the update_leaderboard method to run again after 1000ms (1 second)
+        self.root.after(1000, self.update_leaderboard)
+
