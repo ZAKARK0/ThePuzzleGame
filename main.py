@@ -13,3 +13,16 @@ GRID_SIZE = 10  # Size of the invisible grid
 IMAGE_SIZE = 80  # Size of each image
 PIECE_FOLDER = "pieces100"  # Updated folder name
 NUM_IMAGES = 100
+
+
+# Colors
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+
+# Load and Resize Images
+pieces = []
+for i in range(NUM_IMAGES):
+    image_path = os.path.join(PIECE_FOLDER, f"{i}.jpg")
+    image = Image.open(image_path)
+    image = image.resize((IMAGE_SIZE, IMAGE_SIZE), resample=Image.LANCZOS)
+    pieces.append(pygame.image.frombuffer(image.tobytes(), image.size, image.mode))
