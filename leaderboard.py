@@ -42,3 +42,12 @@ class LeaderboardApp:
         # Schedule the update_leaderboard method to run again after 1000ms (1 seond)
         self.root.after(1000, self.update_leaderboard)
 
+    def time_to_seconds(self, time_str):
+        # Convert time string (HH:MM:SS) to seconds for sorting
+        hours, minutes, seconds = map(int, time_str.split(":"))
+        return hours * 3600 + minutes * 60 + seconds
+
+if __name__ == "__main__":
+    root = tk.Tk()  # Create the Tkinter root window
+    app = LeaderboardApp(root)  # Create an instance of the LeaderboardApp class
+    root.mainloop()  # Start the Tkinter event loop
